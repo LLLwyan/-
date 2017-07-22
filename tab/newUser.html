@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="../assets/css/jquery-ui.custom.min.css" />
+    <link rel="stylesheet" href="../assets/css/daterangepicker.css" />
+    <link rel="stylesheet" href="../assets/css/ui.jqgrid.css" />
+    <link rel="stylesheet" href="../assets/css/BeAlert.css"/>
+    <!-- text fonts -->
+
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="../assets/css/ace.min.css" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="../assets/css/ace-part2.min.css" />
+    <![endif]-->
+    <link rel="stylesheet" href="../assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="../assets/css/ace-rtl.min.css" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="../assets/css/ace-ie.min.css" />
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+    <script src="../assets/js/ace-extra.min.js"></script>
+    <script src="../assets/js/jquery-2.1.1.min.js"></script>
+    <script src="../assets/js/ace.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lte IE 8]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <script src="../assets/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        input{
+            width: 100%;
+        }
+        select{
+            width:82%;
+        }
+        #information label{
+            height: 29px;
+            line-height: 29px;
+            font-size: 15px;
+        }
+        #importData,#customer{
+            margin:4px 20px 0 0;
+            width:10%;
+        }
+    </style>
+</head>
+
+<body class="no-skin">
+<div class="main-content" style="overflow-x: hidden;">
+    <div class="page-content">
+        <div class="page-header">
+            <h1 style="text-align: center">专线新建</h1>
+        </div><!-- /.page-header -->
+
+        <h4 class="header blue bolder smaller overflow-hidden">客户选择</h4>
+
+        <form action="#" class="row form-horizontal" id="information">
+            <label for="uChose" class="col-sm-2 text-right">集团名称:</label>
+            <div class="col-sm-2">
+                <select name="uChose" id="uChose">
+                    <option value="0">客户1</option>
+                    <option value="1">客户2</option>
+                    <option value="2">客户3</option>
+                </select>
+            </div>
+
+            <label for="import" class="col-sm-2 text-right no-padding-right" >导入客户资料:</label>
+            <input type="file" name="import" id="import" class="col-sm-3" style="margin-top: 4px;margin-right: -85px;"/>
+            <input type="submit" value="导入客户资料" class="col-sm-2" style="margin-top: 4px;width:10%;" id="importData"/>
+            <button id="customer" type="button" class="col-sm-2">填写客户资料</button>
+        </form>
+
+
+        <form  action="#" class="row form-horizontal" id="uInformation" style="margin:0;">
+            <h4 class="header blue bolder smaller overflow-hidden">客户信息 </h4>
+            <div id="edit-basic" class="tab-pane active col-sm-12">
+                <div class="space"></div>
+
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-6 control-label no-padding-right" for="gNumber">集团代码：</label>
+                        <div class="col-sm-5" style="padding-left: 5px">
+                            <input type="url" id="gNumber" value="集团代码" name="gNumber" readonly/>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-3 control-label no-padding-right" for="gName">集团名称：</label>
+                        <div class="col-sm-5" style="padding-left:5px;">
+                            <input type="url" id="gName" value="集团名称" name="gName" readonly/>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-6 control-label no-padding-right" for="uCity">地市名称：</label>
+                        <div class="col-sm-5" style="padding-left:5px;">
+                            <input type="text" id="uCity" value="地市名称" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-3 control-label no-padding-right" for="uCounty">区县名称：</label>
+                        <div class="col-sm-5" style="padding-left:5px;">
+                            <input type="url" id="uCounty" value="区县名称" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-6 control-label no-padding-right" for="uArea">片区名称：</label>
+                        <div class="col-sm-5" style="padding-left:5px;">
+                            <input type="url" id="uArea" value="片区名称" name="uArea" readonly/>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="header blue bolder smaller overflow-hidden">专线信息 </h4>
+
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-6 control-label no-padding-right" for="uManager">客户经理：</label>
+                        <div class="col-sm-5" style="padding-left:5px;">
+                            <input type="text" value="客户经理" id="uManager" name="uManager" readonly/>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-3 control-label no-padding-right" for="uMoney">资费金额：</label>
+                        <div class="col-sm-5" style="padding: 0 5px 0 15px ">
+                            <input type="text" value="资费金额" id="uMoney" name="uMoney" readonly/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-6 control-label no-padding-right" for="uPhone">专线号码：</label>
+                            <div class="col-sm-5">
+                                <input type="text" value="专线号码" id="uPhone" name="uPhone" readonly/>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-3 control-label no-padding-right" for="uState">专线状态：</label>
+                            <div class="col-sm-5">
+                                <input type="text" value="专线状态" id="uState" name="uState" readonly/>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-6 control-label no-padding-right" for="uType">专线类型：</label>
+                            <div class="col-sm-6">
+                                <select id="uType" name="uType" disabled>
+                                    <option value="0">互联网</option>
+                                    <option value="1">数据传输</option>
+                                    <option value="2">VOIP专线</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-3 control-label no-padding-right" for="ustartTime">专线开户时间：</label>
+                            <div class="col-sm-5">
+                                <input type="text" value="专线开户时间" name="ustartTime"  id="ustartTime" onclick="WdatePicker()" readonly/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-6 control-label no-padding-right" for="accessType">传输接入方式:</label>
+                            <div class="col-sm-6">
+                                <select id="accessType" name="accessType" disabled>
+                                    <option value="0">PTN</option>
+                                    <option value="1">SDH</option>
+                                    <option value="2">PON</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-3 control-label no-padding-right" for="dcross">是否双跨:</label>
+                            <div class="col-sm-6">
+                                <select id="dcross" style="width: 82%;" name="dcross" disabled>
+                                    <option value="0">跨省</option>
+                                    <option value="1">跨市</option>
+                                    <option value="2">本地</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-6 control-label no-padding-right" for="pKey">是否省重客专线：</label>
+                            <div class="col-sm-6">
+                                <select id="pKey" name="pKey" disabled>
+                                    <option value="0">是</option>
+                                    <option value="1">否</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <span class="col-sm-3 control-label no-padding-right">维护类型：</span>
+                            <div class="col-sm-6">
+                                <select  style="width:82%;" name="maintainType" disabled>
+                                    <option value="0">普通</option>
+                                    <option value="1">铜牌</option>
+                                    <option value="2">银牌</option>
+                                    <option value="3">金牌</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-6 control-label no-padding-right" for="gContact">联系人：</label>
+                            <div class="col-sm-5" style="padding-left:5px;">
+                                <input type="url" id="gContact" value="联系人" name="gContact" readonly/>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-3 control-label no-padding-right" for="gPhone">联系电话：</label>
+                            <div class="col-sm-5">
+                                <input type="url" id="gPhone" value="联系电话" name="gPhone" readonly/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-6 control-label no-padding-right" for="gContact_a">A端联系人：</label>
+                            <div class="col-sm-5" style="padding-left:5px;">
+                                <input type="url" id="gContact_a" class="az" value="A端联系人" readonly/>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-3 control-label no-padding-right" for="gContact_z">Z端联系人：</label>
+                            <div class="col-sm-5">
+                                <input type="url" id="gContact_z" class="az" value="A端联系人"  readonly/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-6 control-label no-padding-right" for="gContact">A端联系电话：</label>
+                            <div class="col-sm-5" style="padding-left:5px;">
+                                <input type="url" id="gPhone_a" class="az" value="A端联电话" readonly/>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-3 control-label no-padding-right" for="gPhone">Z端联系电话：</label>
+                            <div class="col-sm-5">
+                                <input type="url" id="gPhone_z" class="az" value="Z端联系电话" readonly/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-6 control-label no-padding-right" for="gContact">A端联系地址：</label>
+                            <div class="col-sm-5" style="padding-left:5px;">
+                                <input type="url" id="gAddress_a" class="az" value="A端联系地址" readonly/>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-3 control-label no-padding-right" for="gPhone">Z端联系地址：</label>
+                            <div class="col-sm-5">
+                                <input type="url" id="gAddress_z" class="az" value="Z端联系地址" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-4 col-md-9">
+                        <button class="btn btn-info" type="button">
+                            <i class="icon-ok bigger-110"></i>
+                            新建
+                        </button>
+                        <button class="btn" type="reset" style="margin-left: 55px" id="back">
+                            <i class="icon-remove bigger-110"></i>
+                            取消
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div><!-- /.page-content -->
+</div><!-- 内容区域 -->
+
+<!--尾部区域-->
+<div class="footer">
+    <div class="footer-inner">
+        <div class="footer-content">
+			<span class="bigger-100">
+				Copyright &copy; 2017  中国移动通信集团公司 版权所有| 技术支持 <a href="www.honestdo.com">成都诚骏科技有限公司</a>
+			</span>
+        </div>
+    </div>
+</div>
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+<script src="../assets/js/jquery-2.0.3.min.js"></script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script src="../assets/js/jquery-1.10.2.min.js"></script>
+<![endif]-->
+
+<!--[if !IE]> -->
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../assets/js/jquery-2.1.1.min.js'>"+"<"+"/script>");
+</script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../assets/js/jquery1x.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+<script type="text/javascript">
+    if('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/BeAlert.js"></script>
+<script>
+    $(function(){
+        //判断上传文件类型
+        $("#import").change(function(){
+            var fileformats=$(this).val();
+            var forStart = fileformats.lastIndexOf(".");
+            var formats=fileformats.substring(forStart,fileformats.length);
+            console.log(formats);
+            if(formats !=".xls" && formats !=".xlsx"){
+                alert("导入错误！", "请导入Excel文件",function(){},{type: 'error', confirmButtonText: 'OK'});
+                $(this).val("");
+                return undefined;
+            }
+            //$.ajax() 接收信息填写到表单
+            typeJudge();
+        });
+
+        typeJudge();
+
+    });
+
+    //专线类型判断
+    function typeJudge(){
+        var val=$("#uType").val();
+        if(val == 0){
+            $(".azContact").hide();
+        }else{
+            $(".azContact").show();
+        }
+    }
+    $("#uType").change(function(){
+        typeJudge();
+    });
+
+    //引导客户填写资料
+    $("#customer").click(function(){
+        $("#uInformation input").each(function(){
+            $(this).prop("readonly",false);
+        });
+        if($("#uType").val() == 0){
+            $(".az").prop("readonly",true);
+        }
+        $("#uInformation select").each(function(){
+            $(this).prop("disabled",false);
+        });
+        $("#gNumber").focus();
+    });
+
+    $("#uType").change(function(){
+        if($(this).val() == 1){
+            $(".az").prop("readonly",false);
+        }else{
+            $(".az").prop("readonly",true);
+        }
+    });
+
+    $("#back").click(function(){
+        history.go(-1);
+    });
+</script>
+</body>
+</html>

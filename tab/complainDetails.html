@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="../assets/css/jquery-ui.custom.min.css" />
+    <link rel="stylesheet" href="../assets/css/daterangepicker.css" />
+    <link rel="stylesheet" href="../assets/css/ui.jqgrid.css" />
+    <link rel="stylesheet" href="../assets/css/application.css"/>
+    <!-- text fonts -->
+
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="../assets/css/ace.min.css" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="../assets/css/ace-part2.min.css" />
+    <![endif]-->
+    <link rel="stylesheet" href="../assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="../assets/css/ace-rtl.min.css" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="../assets/css/ace-ie.min.css" />
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+    <script src="../assets/js/ace-extra.min.js"></script>
+    <script src="../assets/js/jquery-2.1.1.min.js"></script>
+    <script src="../assets/js/ace.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lte IE 8]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <script src="../assets/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        input{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="no-skin">
+<div class="main-content">
+    <div class="page-content">
+        <div class="page-header">
+            <h1 style="text-align: center">投诉建议</h1>
+        </div><!-- /.page-header -->
+        <form  action="#" class="row form-horizontal" style="margin:0;">
+            <div id="edit-basic" class="tab-pane active col-sm-12">
+
+                <h4 class="header blue bolder smaller">客户信息</h4>
+
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-6 control-label no-padding-right" for="cName">集团名称：</label>
+                        <div class="col-sm-5">
+                            <span class="input-icon">
+                                <input type="text" value="${complain.pCName }" id="cName" readonly>
+                                <i class="icon-tag blue"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-3 control-label no-padding-right" for="cNumber">集团代码：</label>
+                        <div class="col-sm-6">
+                            <span class="input-icon">
+                                <input type="text" value="${complain.pCCode }" id="cNumber" readonly>
+                                <i class="icon-edit blue"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space"></div>
+                <h4 class="header blue bolder smaller">投诉相关</h4>
+
+                <div class="form-group col-sm-6">
+                    <label class="col-sm-6 control-label no-padding-right" for="cId">投诉单号：</label>
+                    <div class="col-sm-5">
+                            <span class="input-icon input-icon-right">
+                                <input type="text" id="cId" value="${complain.pCode }" readonly>
+                                <i class="icon-barcode"></i>
+                            </span>
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+
+                <div class="form-group col-sm-6">
+                    <label class="col-sm-3 control-label no-padding-right" for="cTime">投诉时间：</label>
+                    <div class="col-sm-6">
+                            <span class="input-icon input-icon-right">
+                                <input type="url" id="cTime" value="${complain.pTime }" readonly>
+                                <i class="icon-time"></i>
+                            </span>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-6">
+                    <label class="col-sm-6 control-label no-padding-right" for="cPerson">投诉人员：</label>
+                    <div class="col-sm-5">
+                            <span class="input-icon input-icon-right">
+                                <input type="url" id="cPerson" value="${complain.pPerson }" readonly>
+                                <i class="icon-user"></i>
+                            </span>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-6">
+                    <label class="col-sm-3 control-label no-padding-right" for="cPhone">联系电话：</label>
+                    <div class="col-sm-6">
+                            <span class="input-icon input-icon-right">
+                                <input type="url" id="cPhone" value="${complain.pTel }" readonly>
+                                <i class="icon-phone"></i>
+                            </span>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-6">
+                    <label class="col-sm-6 control-label no-padding-right" for="cDepartment">投诉部门：</label>
+                    <div class="col-sm-5">
+                            <span class="input-icon input-icon-right">
+                                <input type="url" id="cDepartment" value="${complain.pCName }" readonly>
+                                <i class="icon-calendar"></i>
+                            </span>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-6">
+                    <label class="col-sm-3 control-label no-padding-right" for="cType">投诉类型：</label>
+                    <div class="col-sm-6">
+                            <span class="input-icon input-icon-right">
+                                <input type="url" id="cType" value="${complain.pType }" readonly>
+                                <i class="icon-calendar"></i>
+                            </span>
+                    </div>
+                </div>
+
+                <div class="space"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="cDetails" style="padding-right: 6px;">投诉详情：</label>
+                    <div class="col-sm-6">
+                        <textarea id="cDetails" class="autosize-transition form-control"  value="${complain.pDetail }" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height:120px; margin-left: 0px; margin-right: -0.015625px; width: 450px;" readonly>投诉详情......</textarea>
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+
+                <h4 class="header blue bolder smaller">投诉处理</h4>
+
+                <div class="form-group col-sm-6">
+                    <label class="col-sm-6 control-label no-padding-right" for="cHandlestaff">处理人员：</label>
+                    <div class="col-sm-5">
+                            <span class="input-icon">
+                                <input type="text" value="${complain.pManager }" id="cHandlestaff" readonly>
+                            </span>
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+
+                <div class="form-group col-sm-6">
+                    <label class="col-sm-3 control-label no-padding-right" for="cHandletime">处理时间：</label>
+                    <div class="col-sm-6">
+                            <span class="input-icon">
+                                <input type="text" value="${complain.pHandle }" id="cHandletime" readonly>
+                            </span>
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+
+                <div class="form-group col-sm-6">
+                    <label class="col-sm-6 control-label no-padding-right" for="cHandlestate">处理状态：</label>
+                    <div class="col-sm-5">
+                            <span class="input-icon">
+                                <input type="text" value="${complain.pState }" id="cHandlestate" readonly>
+                            </span>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-12">
+                    <label class="col-sm-3 control-label" for="cDescribe"  style="padding-right:5px;">处理描述：</label>
+                    <div class="col-sm-6" style="padding-left:5px;">
+                        <textarea id="cDescribe" class="autosize-transition form-control" value="${complain.pDetail }" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height:120px; margin-left: 0px; margin-right: -0.015625px; width: 450px;">处理描述......</textarea>
+                    </div>
+                </div>
+
+                <div class="space"></div>
+
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-6 control-label no-padding-right">投诉处理评分：</label>
+                        <div class="col-sm-5" style="height: 29px;line-height: 29px;">
+                            <!--<input type="text" value="${repair.rCStar }" id="rEvaluate" readonly>-->
+                            <div id="raty"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-6 control-label no-padding-right" for="cEvaluate" style="padding-left: 15px;">投诉处理评价：</label>
+                        <div class="col-sm-5" style="padding-left: 15px;">
+                            <!--<input type="text" value="${repair.rCStar }" id="rEvaluate" readonly>-->
+                            <textarea id="cEvaluate" class="autosize-transition form-control"  value="" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height:120px; margin-left: 0px; margin-right: -0.015625px; width: 450px;">评价详情......</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="clearfix form-actions">
+                        <div class="col-md-offset-5 col-md-9">
+                            <button class="btn btn-success no-border" type="button" id="confirm">
+                                <i class="icon-ok igger-110"></i>
+                                保存
+                            </button>
+
+                            <button class="btn" type="button" id="reset" style="margin-left:55px;">
+                                <i class="icon-undo bigger-110"></i>
+                                返回
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div><!-- /.page-content -->
+</div><!-- 内容区域 -->
+
+<!--尾部区域-->
+<div class="footer">
+    <div class="footer-inner">
+        <div class="footer-content">
+					<span class="bigger-100">
+					Copyright &copy; 2017  中国移动通信集团公司 版权所有| 技术支持 <a href="www.honestdo.com">成都诚骏科技有限公司</a>
+					</span>
+        </div>
+    </div>
+</div>
+
+
+<!--[if !IE]> -->
+<script src="../assets/js/jquery-2.0.3.min.js"></script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script src="../assets/js/jquery-1.10.2.min.js"></script>
+<![endif]-->
+
+<!--[if !IE]> -->
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../assets/js/jquery1x.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+<script type="text/javascript">
+    if('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
+
+<!-- basic scripts -->
+<script src="../assets/js/jquery-1.10.2.min.js"></script>
+<script src="../assets/js/jquery.raty.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script>
+    //星级评分
+    $.fn.raty.defaults.path = '../assets/img';
+    $('#raty').raty();
+
+    //返回
+    $("#reset").click(function(){
+        history.go(-1);
+    });
+</script>
+</body>
+</html>

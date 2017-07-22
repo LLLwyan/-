@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="../assets/css/jquery-ui.custom.min.css" />
+
+    <!-- text fonts -->
+
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="../assets/css/ace.min.css" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="../assets/css/ace-part2.min.css" />
+    <![endif]-->
+    <link rel="stylesheet" href="../assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="../assets/css/ace-rtl.min.css" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="../assets/css/ace-ie.min.css" />
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+    <script src="../assets/js/ace-extra.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lte IE 8]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <script src="../assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="no-skin">
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+    </script>
+
+    <div class="main-content">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+            </script>
+
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">推广管理</a>
+                </li>
+
+                <li>
+                    <a href="#">公告管理</a>
+                </li>
+            </ul><!-- 当前位置-->
+
+        </div>
+
+        <div class="page-content">
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label no-padding-right" for="form-field-1">分类： </label>
+
+                            <div class="col-sm-6">
+                                <select name="" id="form-field-1" class="col-xs-10 col-sm-5">
+                                    <option value="0">分类</option>
+                                    <option value="0">分类</option>
+                                    <option value="0">分类</option>
+                                    <option value="0">分类</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label no-padding-right" for="form-field-2"> 标题：</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" id="form-field-2" placeholder="在这里输入新闻标题..." class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label no-padding-right" for="form-field-3"> 内容：</label>
+                            <div class="col-sm-8" id="form-field-3">
+                                <script id="editor" type="text/plain" style="height:300px;">
+                                    哈哈哈
+                                </script>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label no-padding-right" for="form-field-4"> 发布人：</label>
+                            <div class="col-sm-3">
+                                <input type="text" id="form-field-4" placeholder="在这里输入新闻发布人..." class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label no-padding-right" for="form-field-5"> 发布日期：</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="form-field-5" placeholder="在这里选择新闻发布日期..." class="form-control" />
+                            </div>
+                        </div>
+                        <div class="clearfix form-actions">
+                            <div class="col-md-offset-4 col-md-8">
+                                <button class="btn btn-info" ype="button">
+                                    <i class="ace-icon fa fa-check bigger-110"></i>
+                                    发布
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="ace-icon fa fa-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+                    <script type="text/javascript">
+                        var $path_assets = "assets";
+                    </script>
+
+                    <!-- PAGE CONTENT ENDS -->
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div><!-- /.main-content -->
+
+
+</div><!-- 内容区域 -->
+
+<!--尾部区域-->
+<div class="footer">
+    <div class="footer-inner">
+        <div class="footer-content">
+					<span class="bigger-100">
+					Copyright &copy; 2017  中国移动通信集团公司 版权所有| 技术支持 <a href="www.honestdo.com">成都诚骏科技有限公司</a>
+					</span>
+        </div>
+    </div>
+</div>
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+<script src="../assets/js/jquery-2.1.1.min.js"></script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script src="../assets/js/jquery-1.11.1.min.js"></script>
+<![endif]-->
+
+<!--[if !IE]> -->
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../assets/js/jquery.min.js'>"+"<"+"/script>");
+</script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../assets/js/jquery1x.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+<script type="text/javascript">
+    if('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
+<script src="../assets/js/bootstrap.min.js"></script>
+
+<!-- page specific plugin scripts -->
+<script src="../assets/js/jquery-ui.custom.min.js"></script>
+<script src="../assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="../assets/js/markdown/markdown.min.js"></script>
+<script src="../assets/js/markdown/bootstrap-markdown.min.js"></script>
+<script src="../assets/js/jquery.hotkeys.min.js"></script>
+<script src="../assets/js/bootstrap-wysiwyg.min.js"></script>
+<script src="../assets/js/bootbox.min.js"></script>
+
+<!-- ace scripts -->
+<script src="../assets/js/ace-elements.min.js"></script>
+<script src="../assets/js/ace.min.js"></script>
+
+<!-- inline scripts related to this page -->
+<!--编辑器-->
+<script type="text/javascript" charset="utf-8" src="../assets/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../assets/js/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="../lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+    var ue = UE.getEditor('editor');
+    function isFocus(e){
+        alert(UE.getEditor('editor').isFocus());
+        UE.dom.domUtils.preventDefault(e)
+    }
+    function setblur(e){
+        UE.getEditor('editor').blur();
+        UE.dom.domUtils.preventDefault(e)
+    }
+    function insertHtml() {
+        var value = prompt('插入html代码', '');
+        UE.getEditor('editor').execCommand('insertHtml', value)
+    }
+    function createEditor() {
+        enableBtn();
+        UE.getEditor('editor');
+    }
+    function getAllHtml() {
+        alert(UE.getEditor('editor').getAllHtml())
+    }
+    function getContent() {
+        var arr = [];
+        arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+        arr.push("内容为：");
+        arr.push(UE.getEditor('editor').getContent());
+        alert(arr.join("\n"));
+    }
+    function getPlainTxt() {
+        var arr = [];
+        arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
+        arr.push("内容为：");
+        arr.push(UE.getEditor('editor').getPlainTxt());
+        alert(arr.join('\n'))
+    }
+    function setContent(isAppendTo) {
+        var arr = [];
+        arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
+        UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
+        alert(arr.join("\n"));
+    }
+    function setDisabled() {
+        UE.getEditor('editor').setDisabled('fullscreen');
+        disableBtn("enable");
+    }
+
+    function setEnabled() {
+        UE.getEditor('editor').setEnabled();
+        enableBtn();
+    }
+
+    function getText() {
+        //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
+        var range = UE.getEditor('editor').selection.getRange();
+        range.select();
+        var txt = UE.getEditor('editor').selection.getText();
+        alert(txt)
+    }
+
+    function getContentTxt() {
+        var arr = [];
+        arr.push("使用editor.getContentTxt()方法可以获得编辑器的纯文本内容");
+        arr.push("编辑器的纯文本内容为：");
+        arr.push(UE.getEditor('editor').getContentTxt());
+        alert(arr.join("\n"));
+    }
+    function hasContent() {
+        var arr = [];
+        arr.push("使用editor.hasContents()方法判断编辑器里是否有内容");
+        arr.push("判断结果为：");
+        arr.push(UE.getEditor('editor').hasContents());
+        alert(arr.join("\n"));
+    }
+    function setFocus() {
+        UE.getEditor('editor').focus();
+    }
+    function deleteEditor() {
+        disableBtn();
+        UE.getEditor('editor').destroy();
+    }
+    function disableBtn(str) {
+        var div = document.getElementById('btns');
+        var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+        for (var i = 0, btn; btn = btns[i++];) {
+            if (btn.id == str) {
+                UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+            } else {
+                btn.setAttribute("disabled", "true");
+            }
+        }
+    }
+    function enableBtn() {
+        var div = document.getElementById('btns');
+        var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+        for (var i = 0, btn; btn = btns[i++];) {
+            UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+        }
+    }
+
+    function getLocalData () {
+        alert(UE.getEditor('editor').execCommand( "getlocaldata" ));
+    }
+
+    function clearLocalData () {
+        UE.getEditor('editor').execCommand( "clearlocaldata" );
+        alert("已清空草稿箱")
+    }
+
+    $("#editor").on("click","body.view",function(){
+        console.log("1111111");
+    });
+</script>
+
+<script type="text/javascript">
+    jQuery(function($){
+
+        function showErrorAlert (reason, detail) {
+            var msg='';
+            if (reason==='unsupported-file-type') { msg = "Unsupported format " +detail; }
+            else {
+                //console.log("error uploading file", reason, detail);
+            }
+            $('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>'+
+                '<strong>File upload error</strong> '+msg+' </div>').prependTo('#alerts');
+        }
+
+
+
+        $('[data-toggle="buttons"] .btn').on('click', function(e){
+            var target = $(this).find('input[type=radio]');
+            var which = parseInt(target.val());
+            var toolbar = $('#editor1').prev().get(0);
+            if(which >= 1 && which <= 4) {
+                toolbar.className = toolbar.className.replace(/wysiwyg\-style(1|2)/g , '');
+                if(which == 1) $(toolbar).addClass('wysiwyg-style1');
+                else if(which == 2) $(toolbar).addClass('wysiwyg-style2');
+                if(which == 4) {
+                    $(toolbar).find('.btn-group > .btn').addClass('btn-white btn-round');
+                } else $(toolbar).find('.btn-group > .btn-white').removeClass('btn-white btn-round');
+            }
+        });
+
+
+
+
+        if ( typeof jQuery.ui !== 'undefined' && ace.vars['webkit'] ) {
+
+            var lastResizableImg = null;
+            function destroyResizable() {
+                if(lastResizableImg == null) return;
+                lastResizableImg.resizable( "destroy" );
+                lastResizableImg.removeData('resizable');
+                lastResizableImg = null;
+            }
+
+            var enableImageResize = function() {
+                $('.wysiwyg-editor')
+                    .on('mousedown', function(e) {
+                        var target = $(e.target);
+                        if( e.target instanceof HTMLImageElement ) {
+                            if( !target.data('resizable') ) {
+                                target.resizable({
+                                    aspectRatio: e.target.width / e.target.height,
+                                });
+                                target.data('resizable', true);
+
+                                if( lastResizableImg != null ) {
+                                    //disable previous resizable image
+                                    lastResizableImg.resizable( "destroy" );
+                                    lastResizableImg.removeData('resizable');
+                                }
+                                lastResizableImg = target;
+                            }
+                        }
+                    })
+                    .on('click', function(e) {
+                        if( lastResizableImg != null && !(e.target instanceof HTMLImageElement) ) {
+                            destroyResizable();
+                        }
+                    })
+                    .on('keydown', function() {
+                        destroyResizable();
+                    });
+            }
+
+            enableImageResize();
+
+        }
+
+
+    });
+</script>
+</body>
+</html>

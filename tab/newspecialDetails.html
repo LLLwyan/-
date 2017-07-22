@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="../assets/css/jquery-ui.custom.min.css" />
+    <link rel="stylesheet" href="../assets/css/daterangepicker.css" />
+    <link rel="stylesheet" href="../assets/css/ui.jqgrid.css" />
+    <!-- text fonts -->
+
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="../assets/css/ace.min.css" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="../assets/css/ace-part2.min.css" />
+    <![endif]-->
+    <link rel="stylesheet" href="../assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="../assets/css/ace-rtl.min.css" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="../assets/css/ace-ie.min.css" />
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+    <script src="../assets/js/ace-extra.min.js"></script>
+    <script src="../assets/js/jquery-2.1.1.min.js"></script>
+    <script src="../assets/js/ace.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lte IE 8]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <script src="../assets/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        input{
+            width: 100%;
+        }
+        select{
+            width:82%;
+        }
+        .nProgress table{
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="no-skin">
+<div class="main-content">
+    <div class="page-content">
+        <div class="page-header">
+            <h1 style="text-align: center">新建工单详情</h1>
+        </div><!-- /.page-header -->
+
+        <h4 class="header blue bolder smaller overflow-hidden">集团信息</h4>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label class="col-sm-6 control-label no-padding-right text-right" for="gName">集团名称：</label>
+                <div class="col-sm-5" style="padding-left:5px;">
+                    <input type="url" id="gName" value="集团名称" readonly>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label class="col-sm-2 control-label no-padding-right " for="gNumber">集团代码：</label>
+                <div class="col-sm-5">
+                    <input type="url" id="gNumber" value="集团代码" readonly>
+                </div>
+            </div>
+
+
+            <div class="form-group col-sm-6">
+                <label class="col-sm-6 control-label no-padding-right text-right" for="uCity">地市名称：</label>
+                <div class="col-sm-5" style="padding-left:5px;">
+                    <input type="text" id="uCity" value="地市名称" readonly>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label class="col-sm-2 control-label no-padding-right" for="uCounty">区县名称：</label>
+                <div class="col-sm-5">
+                    <input type="url" id="uCounty" value="区县名称" readonly>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label class="col-sm-6 control-label no-padding-right text-right" for="uArea">片区名称：</label>
+                <div class="col-sm-5" style="padding-left:5px;">
+                    <input type="url" id="uArea" value="片区名称" readonly>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="header blue bolder smaller overflow-hidden">工单信息</h4>
+        <form  action="#" class="row form-horizontal" style="margin:0;">
+            <div id="edit-basic" class="tab-pane active col-sm-12">
+                <div class="space"></div>
+
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-6 control-label no-padding-right" for="uOrder">工单名称：</label>
+                        <div class="col-sm-5" style="padding-left:5px;">
+                            <input type="text" id="uOrder" value="工单名称" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-3 control-label no-padding-right" for="uNumber">工单号码：</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="uNumber" value="工单号码" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-6 control-label no-padding-right" for="uManager">客户经理：</label>
+                        <div class="col-sm-5" style="padding-left:5px;">
+                            <input type="text" value="客户经理" id="uManager" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-3 control-label no-padding-right" for="uMoney">资费金额：</label>
+                        <div class="col-sm-5">
+                            <input type="text" value="资费金额" id="uMoney" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-6 control-label no-padding-right" for="uPhone">专线号码：</label>
+                            <div class="col-sm-5">
+                                <input type="text" value="专线号码" id="uPhone" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-3 control-label no-padding-right" for="uState">专线状态：</label>
+                            <div class="col-sm-5" style="padding: 0 19px 0 8px;">
+                                <input type="text" value="专线状态" id="uState" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+					<div class="row">
+						<div class="form-group col-sm-6">
+                            <label class="col-sm-6 control-label no-padding-right" for="uType">专线类型：</label>
+                            <div class="col-sm-6">
+                                <select id="uType" disabled>
+                                    <option value="0">互联网</option>
+                                    <option value="1">数据传输</option>
+                                </select>
+                            </div>
+						</div>
+
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-3 control-label no-padding-right" for="ustartTime">专线开户时间：</label>
+                            <div class="col-sm-5" style="padding: 0 19px 0 8px;">
+                                <input type="text" value="专线开户时间" id="ustartTime" readonly>
+                            </div>
+                        </div>
+					</div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-6 control-label no-padding-right" for="accessType">传输接入方式:</label>
+                            <div class="col-sm-6">
+                                <select id="accessType" disabled>
+                                    <option value="0">PTN</option>
+                                    <option value="1">SDH</option>
+                                    <option value="2">PON</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <span class="col-sm-3 control-label no-padding-right">维护类型：</span>
+                            <div class="col-sm-6" style="padding: 0 19px 0 8px;">
+                                <select  style="width:82%;" disabled>
+                                    <option value="0">普通</option>
+                                    <option value="1">铜牌</option>
+                                    <option value="2">银牌</option>
+                                    <option value="3">金牌</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+					<div class="row">
+					<div class="form-group col-sm-6">
+                            <label class="col-sm-6 control-label no-padding-right" for="dcross">是否双跨:</label>
+                            <div class="col-sm-6">
+                                <select id="dcross" style="width: 82%;" disabled>
+                                    <option value="0">跨省</option>
+                                    <option value="1">跨市</option>
+                                    <option value="2">本地</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-3 control-label no-padding-right" for="pKey">是否省重客专线：</label>
+                            <div class="col-sm-6" style="padding: 0 19px 0 8px;">
+                                <select id="pKey" disabled>
+                                    <option value="0">是</option>
+                                    <option value="1">否</option>
+                                </select>
+                            </div>
+                        </div>
+					
+					</div>
+
+                 </div>
+
+					<div class="row">
+						<div class="form-group col-sm-6">
+                        <label class="col-sm-6 control-label no-padding-right" for="gContact">联系人：</label>
+                        <div class="col-sm-5" style="padding-left:5px;">
+                            <input type="url" id="gContact" value="联系人" readonly>
+                        </div>
+						</div>
+
+						<div class="form-group col-sm-6">
+                        <label class="col-sm-3 control-label no-padding-right" for="gPhone">联系电话：</label>
+                        <div class="col-sm-5">
+                            <input type="url" id="gPhone" value="联系电话" readonly>
+                        </div>
+					 </div>
+					</div>
+					
+                <div class="space-4"></div>
+
+                <h4 class="header blue bolder smaller">新建进度</h4>
+                <div class="nProgress">
+                    <div id="timeline-2">
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <div class="timeline-container timeline-style2">
+                                    <div class="timeline-items">
+                                        <div class="timeline-item clearfix">
+                                            <div class="timeline-info">
+                                                <span class="timeline-date">2017-08-09</span>
+                                                <br/>
+                                                <i class="timeline-indicator btn btn-info no-hover"></i>
+
+                                            </div>
+
+                                            <div class="widget-box transparent">
+                                                <div class="widget-body">
+                                                    <div class="widget-main no-padding">
+														<span class="bigger-110">
+															<a href="#" class="blue bolder">勘察审核:</a>
+														</span>
+                                                        <p>
+                                                            状态描述。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="timeline-item clearfix">
+                                            <div class="timeline-info">
+                                                <span class="timeline-date">2017-09-05</span>
+
+                                                <i class="timeline-indicator btn btn-info no-hover"></i>
+                                            </div>
+
+                                            <div class="widget-box transparent">
+                                                <div class="widget-body">
+                                                    <div class="widget-main no-padding">
+                                                        <span class="bigger-110">
+															<a href="#" class="blue bolder">施工中:</a>
+														</span>
+                                                        <p>
+                                                            状态描述。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="timeline-item clearfix">
+                                            <div class="timeline-info">
+                                                <span class="timeline-date">2017-09-12</span>
+
+                                                <i class="timeline-indicator btn btn-info no-hover"></i>
+                                            </div>
+
+                                            <div class="widget-box transparent">
+                                                <div class="widget-body">
+                                                    <div class="widget-main no-padding">
+                                                        <span class="bigger-110">
+															<a href="#" class="blue bolder">调测开通:</a>
+														</span>
+                                                        <p>
+                                                            状态描述。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div><!-- /.timeline-items -->
+                                </div><!-- /.timeline-container -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="clearfix form-actions">
+                        <div class="col-md-offset-5 col-md-9">
+                            <button class="btn" type="button" id="reset">
+                                <i class="icon-undo bigger-110"></i>
+                                返回
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div><!-- /.page-content -->
+</div><!-- 内容区域 -->
+
+<!--尾部区域-->
+<div class="footer">
+    <div class="footer-inner">
+        <div class="footer-content">
+					<span class="bigger-100">
+					Copyright &copy; 2017  中国移动通信集团公司 版权所有| 技术支持 <a href="www.honestdo.com">成都诚骏科技有限公司</a>
+					</span>
+        </div>
+    </div>
+</div>
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+<script src="../assets/js/jquery-2.0.3.min.js"></script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script src="../assets/js/jquery-1.10.2.min.js"></script>
+<![endif]-->
+
+<!--[if !IE]> -->
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../assets/js/jquery.min.js'>"+"<"+"/script>");
+</script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../assets/js/jquery1x.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+<script type="text/javascript">
+    if('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script>
+    $("#reset").click(function(){
+       history.go(-1);
+    });
+</script>
+</body>
+</html>

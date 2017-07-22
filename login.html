@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>中国移动——服务一点通</title>
+    <link href="assets/css/login.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+<div class="login">
+    <div class="message">服务一点通</div>
+
+    <form method="post">
+        <input name="action" value="login" type="hidden">
+        <input name="username" placeholder="用户名" id="user" type="text">
+        <hr class="hr15">
+        <input name="password" placeholder="密码" id="pwd" type="password">
+        <hr class="hr15">
+        <p id="msg">   </p>
+        <hr class="hr15">
+        <input value="登录" style="width:100%;" id="login" type="button" onClick="location.href='index.html'">
+        <hr class="hr20">
+    </form>
+</div>
+<script src="assets/js/jquery-2.0.3.min.js"></script>
+<script>
+    $(document).on("click", "#login", function() {
+        var name = $("#user").val().trim();
+        var pwd = $("#pwd").val().trim();
+        //var code = $("#code").val().trim();
+        if(name.length == 0 || pwd.length == 0){
+            $("#msg").text("用户名或密码不能为空!");
+            return;
+        }
+        /* 			if(code.length == 0){
+         $("#msg").text("请输入验证码");
+         return;
+         } */
+
+        $.ajax({
+            url : "${pageContext.request.contextPath}/user/check",
+            data : {
+                code : name,
+                password : pwd
+            },
+            type : "post",
+            dataType : "json",
+            success : function(result){
+                if (result.status == 0) {
+                    var url ="${pageContext.request.contextPath}/index";
+                    window.location.href=url;
+                } else if (result.status == 1) { //用户名错
+                    $("#msg").text(result.msg);
+                } else if (result.status == 2) {
+                    $("#msg").text(result.msg);
+                }
+            },
+
+            error : function() {
+                alert("失败!");
+            }
+
+
+        });
+    });
+
+    $("#reset").click(function() {
+        $("#name").val("");
+        $("#pwd").val("");
+        // $("#code").val("");
+        //使重置后用户名框获得焦点
+        $("#user").focus();
+    });
+</script>
+</body>
+</html>

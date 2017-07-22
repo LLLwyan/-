@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+
+
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="../assets/css/ace.min.css" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lte IE 8]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <script src="../assets/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        #mChoose,#yChoose{
+            width: 85px;
+            height: 30px;
+            line-height: 30px;
+        }
+        #chaxun{
+            margin: -2px 0 0 15px;
+        }
+        .mChoose{
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+        }
+        .choose{
+            margin:0 30px 30px 0;
+        }
+        .date{
+            margin: 5px 0  0  35px;
+        }
+        .now{
+            color: #478fca;
+            font-size: 14px;
+            display: inline-block;
+            margin-right: 5px;
+            font-weight: bold;
+        }
+        .year,.month{
+            color: #478fca;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div class="main-content">
+    <div class="page-content">
+        <div class="page-header">
+            <h1 style="text-align: center; color: #3167a6;font-size:30px;margin-top: 15px;">月报详情</h1>
+        </div><!-- /.page-header -->
+
+
+            <h4 class="header blue bolder smaller">客户信息</h4>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p class="form-name text-right">集团名称&nbsp;:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <input type="text" name="gNumber" id="gNumber" value="集团名称" readonly/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-sm-pull-1">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p class="form-name text-right">集团代码&nbsp;:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-sm-pull-1">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <input type="text" name="gNumber" id="gNumber" value="集团代码" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <h4 class="header blue bolder smaller">月报信息</h4>
+        <div class="row">
+            <p class="date pull-left">
+                <span class="now">当前月报日期&nbsp;: </span>
+                <span class="year"></span>
+                <span class="month"></span>
+            </p>
+            <form action="" class="pull-right choose">
+                <label for="yChoose" class="mChoose">年份选择&nbsp;:</label>
+                <input type="number" name="yChoose" id="yChoose" min="1" max="9999"/>
+
+                <label for="mChoose" class="mChoose">月份选择&nbsp;:</label>
+                <input type="number" name="mChoose" id="mChoose" min="1" max="12"/>
+                <button type="button" id="chaxun" class="btn btn-sm btn-info">查询</button>
+            </form>
+        </div>
+
+        <form  action="#" class="mReport">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="form-name text-right">故障率&nbsp;:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" name="gNumber" id="gNumber" value="故障率" readonly/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-sm-pull-1">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="form-name text-right">故障次数&nbsp;:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-sm-pull-1">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" name="gNumber" id="gNumber" value="故障次数" readonly/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="space-10"></div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="form-name text-right">平均故障历时&nbsp;:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" name="gNumber" id="gNumber" value="平均故障历时" readonly/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-sm-pull-1">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="form-name text-right">故障处理及时率&nbsp;:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-sm-pull-1">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" name="gNumber" id="gNumber" value="故障处理及时率" readonly/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="space-10"></div>
+            <div class="row">
+
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="form-name text-right">首响及时率&nbsp;:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" name="gNumber" id="gNumber" value="首响及时率" readonly/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-sm-pull-1">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="form-name text-right">超时工单数&nbsp;:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-sm-pull-1">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" name="gNumber" id="gNumber" value="超时工单数" readonly/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="space-10"></div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="form-name text-right">投诉工单数&nbsp;:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" name="gNumber" id="gNumber"  value="投诉工单数" readonly/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-sm-pull-1">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="form-name text-right">审核状态&nbsp;:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-sm-pull-1">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" name="gNumber" id="gNumber"  value="审核状态" readonly/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="space-10"></div>
+            <div class="row">
+
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="form-name text-right">审核结果&nbsp;:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" name="gNumber" id="gNumber" value="审核结果" readonly/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="clearfix form-actions">
+                        <div class="col-md-offset-5 col-md-9">
+                            <button class="btn" type="button" id="back" style="margin-left:55px;">
+                                <i class="icon-undo bigger-110"></i>
+                                返回
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div><!-- /.page-content -->
+</div><!-- 内容区域 -->
+
+<!--尾部区域-->
+<div class="footer">
+    <div class="footer-inner">
+        <div class="footer-content">
+			<span class="bigger-100">
+				Copyright &copy; 2017  中国移动通信集团公司 版权所有| 技术支持 <a href="www.honestdo.com">成都诚骏科技有限公司</a>
+			</span>
+        </div>
+    </div>
+</div>
+
+<script src="../assets/js/jquery-1.10.2.min.js"></script>
+<script>
+    $(function(){
+        var myDate = new Date();
+        var month=myDate.getMonth();
+        var year=myDate.getFullYear();
+        console.log(year);
+        if(month == 0){
+            month=12;
+        }
+        $(".month").text(month+"月");
+        $(".year").text(year+"年");
+
+        //按月份查询
+        $("#chaxun").click(function(){
+            var m=$("#mChoose").val();
+            var y=$("#yChoose").val();
+            if(m == "" || y == ""){
+                alert("请输入完整时间");
+            }else if(y.length<4){
+                alert("请输入正确年份");
+            }else{
+                $(".month").text(m+"月");
+                $(".year").text(y+"年");
+            }
+        });
+
+        //点击返回
+        $("#back").click(function(){
+            history.go(-1);
+            //location.reload();
+        });
+    });
+
+</script>
+</body>
+</html>

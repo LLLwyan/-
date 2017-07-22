@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+
+		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="../assets/css/jquery-ui.custom.min.css" />
+		<link rel="stylesheet" href="../assets/css/daterangepicker.css" />
+		<link rel="stylesheet" href="../assets/css/ui.jqgrid.css" />
+		<link rel="stylesheet" href="../assets/css/WdatePicker.css">
+		<link rel="stylesheet" href="../assets/css/BeAlert.css"/>
+		<!-- text fonts -->
+		
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="../assets/css/ace.min.css" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="../assets/css/ace-part2.min.css" />
+		<![endif]-->
+		<link rel="stylesheet" href="../assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="../assets/css/ace-rtl.min.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="../assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="../assets/js/ace-extra.min.js"></script>
+		<script src="../assets/js/jquery-2.1.1.min.js"></script>
+		<script src="../assets/js/ace.min.js"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="../assets/js/html5shiv.js"></script>
+		<script src="../assets/js/respond.min.js"></script>
+		<![endif]-->
+		<style>
+			.forQuery{
+				display: inline-block;
+				font-size: 14px;
+				height: 30px;
+				line-height: 30px;
+				padding: 0 7px;
+			}
+			.time-space{
+				height: 30px;
+				line-height: 30px;
+				margin: 0 5px;
+			}
+			#chaxun{
+				margin:-3px 3px 0;
+			}
+			.query{
+				margin: 15px 0;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow:ellipsis;
+			}
+			#formNumber{
+				width: 120px;
+			}
+		</style>
+	</head>
+
+	<body class="no-skin">
+	<div class="main-content">
+		<div class="page-content">
+			<div class="page-header">
+				<h1>报修工单详情</h1>
+			</div><!-- /.page-header -->
+
+			<!-- 工单模糊查询-->
+			<div class="query row">
+				<div class="col-sm-6">
+					<label for="formNumber" class="forQuery">单号&nbsp;:</label>
+					<input type="text" id="formNumber" placeholder="请输入单号..." class="inline"/>
+
+					<label for="beginTime" class="forQuery">报修时间&nbsp;:</label>
+					<div class="input-group inline" style="width: 130px;">
+						<input class="data-picker form-control" type="text" id="beginTime" onclick="WdatePicker()">
+						<span class="input-group-addon">
+							<i class="icon-calendar bigger-110"></i>
+						</span>
+					</div>
+					<span class="time-space inline">-</span>
+					<div class="input-group inline"  style="width: 130px;">
+						<input class="data-picker form-control" type="text" id="endTime" onclick="WdatePicker()">
+						<span class="input-group-addon">
+                         	<i class="icon-calendar bigger-110"></i>
+                    	</span>
+					</div>
+				</div>
+
+				<div class="col-sm-6 ">
+					<label for="formName" class="forQuery">集团名称&nbsp;:</label>
+					<input type="text" id="formName" class="input-sm inline" placeholder="请输入集团名称">
+
+					<label for="faultLevel" class="forQuery">故障类型&nbsp;:</label>
+					<select id="faultLevel">
+						<option value="0" selected="">未选择</option>
+						<option value="1">网络故障</option>
+						<option value="2">网络中断</option>
+						<option value="3">网络卡顿</option>
+						<option value="4">设备故障</option>
+					</select>
+					<button value="查询" class="btn btn-sm btn-info" id="chaxun">查询</button>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+
+					<table id="grid-table"></table>
+
+					<div id="grid-pager"></div>
+
+					<script type="text/javascript">
+						var $path_base = "..";//this will be used for editurl parameter
+					</script>
+
+					<!-- PAGE CONTENT ENDS -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.page-content -->
+	</div><!-- 内容区域 -->
+
+
+	<!--尾部区域-->
+	<div class="footer">
+		<div class="footer-inner">
+			<div class="footer-content">
+					<span class="bigger-100">
+					Copyright &copy; 2017  中国移动通信集团公司 版权所有| 技术支持 <a href="www.honestdo.com">成都诚骏科技有限公司</a>
+					</span>
+			</div>
+		</div>
+	</div>
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script src="../assets/js/jquery-2.0.3.min.js"></script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+		<script src="../assets/js/jquery-1.10.2.min.js"></script>
+		<![endif]-->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='../assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+		<script type="text/javascript">
+		 window.jQuery || document.write("<script src='../assets/js/jquery1x.min.js'>"+"<"+"/script>");
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="../assets/js/bootstrap.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+		<script src="../assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+		<script src="../assets/js/jqGrid/grid.locale-en.js"></script>
+		<script src="../assets/js/WdatePicker.js"></script>
+		<script src="../assets/js/BeAlert.js"></script>
+
+		<!-- ace scripts -->
+		<script src="../assets/js/ace-elements.min.js"></script>
+		<script src="../assets/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+		<script type="text/javascript">
+			var grid_data =
+					[
+						{id:"201358239001",sname:"张三", sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239002",sname:"李四",sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239003",sname:"王五",sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239004",sname:"赵六",sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239005",sname:"郭山彤",sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239006",sname:"霍负浪", sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239007",sname:"梁敦厦",sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239008",sname:"虞信品",sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239009",sname:"马仁毅", sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239010",sname:"冯州龙", sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239011",sname:"简务帅",sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239012",sname:"黎丙赣",sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239013",sname:"谢尉争",sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239014",sname:"赵单羽",sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239015",sname:"孟航沛",sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239016",sname:"龚开梦",sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239017",sname:"黄蓝风",sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239018",sname:"易堃登", sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239019",sname:"蔡农仲", sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239020",sname:"高洪泉", sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239021",sname:"巫家昱",sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239022",sname:"赵道霄",sdate:"2007-12-03",remarks:"抄近道",click:"否"},
+						{id:"201358239023",sname:"章学共",sdate:"2007-12-03",remarks:"抄近道",click:"否"}
+					];
+
+			var subgrid_data =
+					[
+						{id:"1", sname:"sub grid item 1", qty: 11},
+						{id:"2", sname:"sub grid item 2", qty: 3},
+						{id:"3", sname:"sub grid item 3", qty: 12},
+						{id:"4", sname:"sub grid item 4", qty: 5},
+						{id:"5", sname:"sub grid item 5", qty: 2},
+						{id:"6", sname:"sub grid item 6", qty: 9},
+						{id:"7", sname:"sub grid item 7", qty: 3},
+						{id:"8", sname:"sub grid item 8", qty: 8}
+					];
+
+			jQuery(function($) {
+				var grid_selector = "#grid-table";
+				var pager_selector = "#grid-pager";
+
+				//resize to fit page size
+				$(window).on('resize.jqGrid', function () {
+					$(grid_selector).jqGrid( 'setGridWidth', $(".page-content").width() );
+				});
+				//resize on sidebar collapse/expand
+				var parent_column = $(grid_selector).closest('[class*="col-"]');
+				$(document).on('settings.ace.jqGrid' , function(ev, event_name, collapsed) {
+					if( event_name === 'sidebar_collapsed' || event_name === 'main_container_fixed' ) {
+						$(grid_selector).jqGrid( 'setGridWidth', parent_column.width() );
+					}
+				});
+
+
+				//获取ifarme高度
+				var tHeight=$(window).height();
+
+				jQuery(grid_selector).jqGrid({
+					data: grid_data,
+					datatype: "local",
+					height:tHeight*0.6,//这是表格内容区域的高度
+					colNames:['报修单号', '报修时间','集团名称','集团代码','故障发现时间','故障描述','故障类型','客户经理','处理状态','接单人员','接单人员电话','接单时间','到达时间','报修状态','客户评价'],
+					colModel:[
+						{name:'sname',index:'sname', width:90,editable: true,editoptions:{size:"20",maxlength:"3000"}},
+						{name:'sname',index:'sname', width:90,editable: true,editoptions:{size:"20",maxlength:"3000"}},
+						{name:'sname',index:'sname', width:100,editable: true,editoptions:{size:"20",maxlength:"3000"}},
+						{name:'sname',index:'sname',width:150,editable: true,editoptions:{size:"20",maxlength:"3000"}},
+						{name:'sname',index:'sname', width:180,editable: true,editoptions:{size:"20",maxlength:"3000"}},
+						{name:'sname',index:'sname', width:120,editable: true,editoptions:{size:"20",maxlength:"3000"}},
+						{name:'sname',index:'sname', width:120,editable: true,editoptions:{size:"20",maxlength:"3000"}},
+						{name:'sname',index:'sname', width:80,editable: true,editoptions:{size:"20",maxlength:"3000"}},
+						{name:'sname',index:'sname', width:80,editable: true,editoptions:{size:"20",maxlength:"3000"}},
+						{name:'sname',index:'sname', width:80,editable: true,editoptions:{size:"20",maxlength:"3000"}},
+						{name:'sname',index:'sname', width:80,editable: true,editoptions:{size:"20",maxlength:"3000"}},
+						{name:'sname',index:'sname', width:110,editable: true,editoptions:{size:"20",maxlength:"3000"}},
+						{name:'sname',index:'sname', width:120,editable: true,editoptions:{size:"20",maxlength:"3000"}},
+						{name:'sname',index:'sname', width:120,editable: true,editoptions:{size:"20",maxlength:"3000"}},
+						{name:'sname',index:'sname', width:80,editable: true,editoptions:{size:"20",maxlength:"3000"}}
+					],
+					viewrecords : true,
+					rowNum:10,
+					rowList:[10,20,30],
+					pager : pager_selector,
+					rownumbers:false,
+					altRows: true,
+					shrinkToFit:false,//是否自动计算宽度，若为false则按照colModel中的width值
+					//toppager: true,
+					multiselect: true, //全选的复选框那一列
+					//multikey: "ctrlKey",
+					multiboxonly: true,
+
+					loadComplete : function() {
+						var table = this;
+						setTimeout(function(){
+							styleCheckbox(table);
+
+							updateActionIcons(table);
+							updatePagerIcons(table);
+							enableTooltips(table);
+						}, 0);
+					},
+
+					editurl: "/dummy.html",//nothing is saved
+				});
+				$(window).triggerHandler('resize.jqGrid');//调节合适的宽度
+
+
+
+
+				function aceSwitch( cellvalue, options, cell ) {
+					setTimeout(function(){
+						$(cell) .find('input[type=checkbox]')
+								.addClass('ace ace-switch ace-switch-5')
+								.after('<span class="lbl"></span>');
+					}, 0);
+				}
+
+				function pickDate( cellvalue, options, cell ) {
+					setTimeout(function(){
+						$(cell) .find('input[type=text]')
+								.datepicker({format:'yyyy-mm-dd' , autoclose:true});
+					}, 0);
+				}
+
+
+				//navButtons
+				jQuery(grid_selector).jqGrid('navGrid',pager_selector,
+						{  //navbar options
+							edit: false,
+							editicon : 'icon-pencil',
+							edittitle:'编辑',
+							add: false,
+							addicon : 'icon-plus-sign purple',
+							addtitle:'新增',
+							del: false,
+							delicon : 'icon-remove-sign red',
+							deltitle:'删除',
+							refresh: false,
+							view: false,
+							search:false,
+						},
+						{
+							//edit record form
+							//closeAfterEdit: true,
+							//width: 700,
+							recreateForm: true,
+							beforeShowForm : function(e) {
+								var form = $(e[0]);
+								form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
+								style_edit_form(form);
+							}
+						},
+						{
+							//new record form
+							//width: 700,
+							closeAfterAdd: true,
+							recreateForm: true,
+							viewPagerButtons: false,
+							beforeShowForm : function(e) {
+								var form = $(e[0]);
+								form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar')
+										.wrapInner('<div class="widget-header" />')
+								style_edit_form(form);
+							}
+						},
+						{
+							//delete record form
+							recreateForm: true,
+							beforeShowForm : function(e) {
+								var form = $(e[0]);
+								if(form.data('styled')) return false;
+
+								form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
+								style_delete_form(form);
+
+								form.data('styled', true);
+							},
+							onClick : function(e) {
+								alert(1);
+							}
+						},
+						{
+							//search form
+							recreateForm: true,
+							afterShowSearch: function(e){
+								var form = $(e[0]);
+								form.closest('.ui-jqdialog').find('.ui-jqdialog-title').wrap('<div class="widget-header" />')
+								style_search_form(form);
+							},
+							afterRedraw: function(){
+								style_search_filters($(this));
+							}
+							,
+							multipleSearch: true,
+							/**
+							 multipleGroup:true,
+							 showQuery: true
+							 */
+						},
+						{
+							//view record form
+							recreateForm: true,
+							beforeShowForm: function(e){
+								var form = $(e[0]);
+								form.closest('.ui-jqdialog').find('.ui-jqdialog-title').wrap('<div class="widget-header" />');
+							}
+						}
+				).jqGrid('navButtonAdd',pager_selector,{//表格底部自定义按钮
+							caption:'浏览详情',
+							id:'details',
+							buttonicon:'icon-list-alt',
+							onClickButton:function(){
+								var ids= $(grid_selector).jqGrid('getGridParam', 'selarrrow');
+								if(ids.length==0){
+									alert("请选择要查看的记录",{type: 'info', confirmButtonText: 'OK'});
+								}else if(ids.length>1){
+									alert("只能选择一条记录",{type: 'info', confirmButtonText: 'OK'});
+								}else{
+									window.location.href="repairDetails.html";
+								}
+							}
+						}).navSeparatorAdd(pager_selector).jqGrid('navButtonAdd',pager_selector,{
+							caption:'全部显示',
+							onClickButton:function(){
+								alert("全部显示");
+							}
+						}).jqGrid('navButtonAdd',pager_selector,{
+							caption:'未处理',
+							buttonicon:'icon-ban-circle red',
+							onClickButton:function(){
+								alert("未处理");
+							}
+						}).jqGrid('navButtonAdd',pager_selector,{
+							caption:'处理中',
+							buttonicon:'icon-time',
+							onClickButton:function(){
+								alert("处理中");
+							}
+						}).jqGrid('navButtonAdd',pager_selector,{
+							caption:'已处理',
+							buttonicon:'icon-ok-circle green',
+							onClickButton:function() {
+								alet("已处理");
+							}
+						});
+
+
+
+
+				function style_edit_form(form) {
+					//enable datepicker on "sdate" field and switches for "stock" field
+					form.find('input[name=sdate],input[name=edate]').datepicker({format:'yyyy-mm-dd' , autoclose:true})
+							.end().find('input[name=stock]')
+							.addClass('ace ace-switch ace-switch-5').after('<span class="lbl"></span>');
+					var buttons = form.next().find('.EditButton .fm-button');
+					buttons.addClass('btn btn-sm').find('[class*="-icon"]').hide();//ui-icon, s-icon
+					buttons.eq(0).addClass('btn-primary').prepend('<i class="ace-icon fa fa-check"></i>');
+					buttons.eq(1).prepend('<i class="ace-icon fa fa-times"></i>')
+
+					buttons = form.next().find('.navButton a');
+					buttons.find('.ui-icon').hide();
+					buttons.eq(0).append('<i class="ace-icon fa fa-chevron-left"></i>');
+					buttons.eq(1).append('<i class="ace-icon fa fa-chevron-right"></i>');
+				}
+
+				function style_delete_form(form) {
+					var buttons = form.next().find('.EditButton .fm-button');
+					buttons.addClass('btn btn-sm btn-white btn-round').find('[class*="-icon"]').hide();//ui-icon, s-icon
+					buttons.eq(0).addClass('btn-danger').prepend('<i class="ace-icon fa fa-trash-o"></i>');
+					buttons.eq(1).addClass('btn-default').prepend('<i class="ace-icon fa fa-times"></i>')
+				}
+
+				function style_search_filters(form) {
+					form.find('.delete-rule').val('X');
+					form.find('.add-rule').addClass('btn btn-xs btn-primary');
+					form.find('.add-group').addClass('btn btn-xs btn-success');
+					form.find('.delete-group').addClass('btn btn-xs btn-danger');
+				}
+				function style_search_form(form) {
+					var dialog = form.closest('.ui-jqdialog');
+					var buttons = dialog.find('.EditTable')
+					buttons.find('.EditButton a[id*="_reset"]').addClass('btn btn-sm btn-info').find('.ui-icon').attr('class', 'ace-icon fa fa-retweet');
+					buttons.find('.EditButton a[id*="_query"]').addClass('btn btn-sm btn-inverse').find('.ui-icon').attr('class', 'ace-icon fa fa-comment-o');
+					buttons.find('.EditButton a[id*="_search"]').addClass('btn btn-sm btn-purple').find('.ui-icon').attr('class', 'ace-icon fa fa-search');
+				}
+
+				function beforeDeleteCallback(e) {
+					var form = $(e[0]);
+					if(form.data('styled')) return false;
+
+					form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />');
+					style_delete_form(form);
+
+					form.data('styled', true);
+				}
+
+				function beforeEditCallback(e) {
+					var form = $(e[0]);
+					form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />');
+					style_edit_form(form);
+				}
+
+
+				function styleCheckbox(table) {
+
+				}
+
+
+
+				function updateActionIcons(table) {
+
+				}
+
+
+				function updatePagerIcons(table) {//底部翻页按钮图标
+					var replacement =
+					{
+						'ui-icon-seek-first' : 'icon-double-angle-left bigger-140',
+						'ui-icon-seek-prev' : 'icon-angle-left bigger-140',
+						'ui-icon-seek-next' : 'icon-angle-right bigger-140',
+						'ui-icon-seek-end' : 'icon-double-angle-right bigger-140'
+					};
+					$('.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon').each(function(){
+						var icon = $(this);
+						var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
+
+						if($class in replacement) icon.attr('class', 'ui-icon '+replacement[$class]);
+					});
+				}
+
+				function enableTooltips(table) {
+					$('.navtable .ui-pg-button').tooltip({container:'body'});
+					$(table).find('.ui-pg-div').tooltip({container:'body'});
+				}
+
+				//双击进入详情
+				$("#grid-table").on("dblclick","tr",function(){
+					window.location.href="repairDetails.html";
+				});
+
+			});
+		</script>
+	</body>
+</html>
